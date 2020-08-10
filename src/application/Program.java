@@ -32,7 +32,7 @@ public class Program {
 			System.out.println(obj);
 		}
 		
-		System.out.println("\n=== TEST 3: Seller findByDepartment ====");
+		System.out.println("\n=== TEST 3: Seller findAll ====");
 		list = sellerDao.findAll();
 		for(Seller obj : list) {
 			System.out.println(obj);
@@ -43,11 +43,11 @@ public class Program {
 		//sellerDao.insert(newSeller);
 		//*System.out.println("Inserted! new Seller = " + newSeller.getId());
 		
-		//System.out.println("\n=== TEST 5: Seller update ====");
-		//seller = sellerDao.findById(9);
-		//seller.setBirthDate(new java.sql.Date(sdf.parse("29/10/1995").getTime()));
-		//sellerDao.update(seller);
-		//*System.out.println("Update completed");
+		System.out.println("\n=== TEST 5: Seller update ====");
+		seller = sellerDao.findById(9);
+		seller.setBirthDate(new java.sql.Date(sdf.parse("29/10/1995").getTime()));
+		sellerDao.update(seller);
+		System.out.println("Update completed");
 		
 		System.out.println("\n=== TEST 6: Seller delete ====");
 		System.out.println("Enter id for delete test: ");
