@@ -1,6 +1,7 @@
 package application;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -10,9 +11,10 @@ import model.entities.Seller;
 
 public class Program {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
-			
+		//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		
@@ -21,7 +23,7 @@ public class Program {
 		System.out.println(seller);
 		
 		System.out.println("\n=== TEST 2: Seller findByDepartment ====");
-		Department department = new Department(2, null);
+		Department department = new Department(3, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
 		for(Seller obj : list) {
 			System.out.println(obj);
@@ -33,10 +35,16 @@ public class Program {
 			System.out.println(obj);
 		}
 		
-		System.out.println("\n=== TEST 4: Seller insert ====");
-		Seller newSeller = new Seller(null, "Jack Dunckann", "jackdun@gmail.com", new Date(), 3900.0, department);
-		sellerDao.insert(newSeller);
-		System.out.println("Inserted! new Seller = " + newSeller.getId());
+		//System.out.println("\n=== TEST 4: Seller insert ====");
+		//Seller newSeller = new Seller(null, "Pedro Costella", "pedro.costella@outlook.com", new java.sql.Date(sdf.parse("31/08/1994").getTime()), 4100.0, department);
+		//sellerDao.insert(newSeller);
+		//*System.out.println("Inserted! new Seller = " + newSeller.getId());
+		
+		//System.out.println("\n=== TEST 5: Seller insert ====");
+		//seller = sellerDao.findById(9);
+		//seller.setBirthDate(new java.sql.Date(sdf.parse("29/10/1995").getTime()));
+		//sellerDao.update(seller);
+		//*System.out.println("Update completed");
 	}
 
 	
